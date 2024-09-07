@@ -12,7 +12,8 @@ public class App {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Cadastrar novo usuário");
         System.out.println("2 - Editar usuário existente");
-        System.out.println("3 - Listar todos os usuários");  // Nova opção
+        System.out.println("3 - Listar todos os usuários");
+        System.out.println("4 - Apagar usuário");
         int opcao = scanner.nextInt();
         scanner.nextLine(); // Limpar o buffer
 
@@ -109,6 +110,15 @@ public class App {
             for (Usuario u : usuarios) {
                 System.out.println("ID: " + u.getIdusuario() + ", Nome: " + u.getNome() + ", Login: " + u.getLogin() + ", Email: " + u.getEmail());
             }
+
+        } else if (opcao == 4) {
+            // Apagar usuário
+            System.out.println("Apagar Usuário");
+
+            System.out.print("Digite o ID do usuário a ser apagado: ");
+            int idusuario = scanner.nextInt();
+
+            usuarioDAO.apagarUsuario(idusuario);
 
         } else {
             System.out.println("Opção inválida.");

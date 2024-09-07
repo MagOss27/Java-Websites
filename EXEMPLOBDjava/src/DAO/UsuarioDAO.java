@@ -118,4 +118,26 @@ public class UsuarioDAO {
 
         return usuarios;
     }
+
+    // Método para apagar um usuário
+    public void apagarUsuario(int idusuario) {
+        String sql = "DELETE FROM USUARIO WHERE IDUSUARIO = ?";
+        PreparedStatement ps = null;
+
+        try {
+            ps = Conexao.getConexao().prepareStatement(sql);
+            ps.setInt(1, idusuario);
+
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Usuário apagado com sucesso!");
+            } else {
+                System.out.println("Nenhum usuário encontrado com o ID fornecido.");
+            }
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
