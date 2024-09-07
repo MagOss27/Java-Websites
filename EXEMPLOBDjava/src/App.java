@@ -1,6 +1,7 @@
 import DAO.UsuarioDAO;
 import entity.Usuario;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -11,6 +12,7 @@ public class App {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Cadastrar novo usuário");
         System.out.println("2 - Editar usuário existente");
+        System.out.println("3 - Listar todos os usuários");  // Nova opção
         int opcao = scanner.nextInt();
         scanner.nextLine(); // Limpar o buffer
 
@@ -98,6 +100,14 @@ public class App {
 
             } else {
                 System.out.println("Usuário ou senha incorretos.");
+            }
+
+        } else if (opcao == 3) {
+            // Listar todos os usuários
+            System.out.println("Listagem de Usuários:");
+            List<Usuario> usuarios = usuarioDAO.listarUsuarios();
+            for (Usuario u : usuarios) {
+                System.out.println("ID: " + u.getIdusuario() + ", Nome: " + u.getNome() + ", Login: " + u.getLogin() + ", Email: " + u.getEmail());
             }
 
         } else {
