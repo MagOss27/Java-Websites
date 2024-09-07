@@ -2,18 +2,18 @@ package entity;
 
 public class Usuario {
 
-    private int codigo;
+    private int idusuario;
     private String nome;
     private String login;
     private String senha;
     private String email;
 
-    public int getCodigo() {
-        return codigo;
+    public int getIdusuario() {
+        return idusuario;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
     }
 
     public String getNome() {
