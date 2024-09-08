@@ -26,9 +26,6 @@ public class App {
             System.out.print("Digite o nome: ");
             u.setNome(scanner.nextLine());
             
-            System.out.print("Digite o login: ");
-            u.setLogin(scanner.nextLine());
-            
             System.out.print("Digite a senha: ");
             u.setSenha(scanner.nextLine());
             
@@ -53,10 +50,9 @@ public class App {
             if (usuario != null) {
                 System.out.println("Usuário encontrado! O que você deseja editar?");
                 System.out.println("1 - Nome");
-                System.out.println("2 - Login");
-                System.out.println("3 - Senha");
-                System.out.println("4 - Email");
-                System.out.println("5 - Todos os campos");
+                System.out.println("2 - Senha");
+                System.out.println("3 - Email");
+                System.out.println("4 - Todos os campos");
 
                 int escolha = scanner.nextInt();
                 scanner.nextLine(); // Limpar o buffer
@@ -67,23 +63,16 @@ public class App {
                         usuario.setNome(scanner.nextLine());
                         break;
                     case 2:
-                        System.out.print("Digite o novo login: ");
-                        usuario.setLogin(scanner.nextLine());
-                        break;
-                    case 3:
                         System.out.print("Digite a nova senha: ");
                         usuario.setSenha(scanner.nextLine());
                         break;
-                    case 4:
+                    case 3:
                         System.out.print("Digite o novo email: ");
                         usuario.setEmail(scanner.nextLine());
                         break;
-                    case 5:
+                    case 4:
                         System.out.print("Digite o novo nome: ");
                         usuario.setNome(scanner.nextLine());
-
-                        System.out.print("Digite o novo login: ");
-                        usuario.setLogin(scanner.nextLine());
 
                         System.out.print("Digite a nova senha: ");
                         usuario.setSenha(scanner.nextLine());
@@ -108,7 +97,7 @@ public class App {
             System.out.println("Listagem de Usuários:");
             List<Usuario> usuarios = usuarioDAO.listarUsuarios();
             for (Usuario u : usuarios) {
-                System.out.println("ID: " + u.getIdusuario() + ", Nome: " + u.getNome() + ", Login: " + u.getLogin() + ", Email: " + u.getEmail());
+                System.out.println("ID: " + u.getIdusuario() + ", Nome: " + u.getNome() + ", Email: " + u.getEmail());
             }
 
         } else if (opcao == 4) {

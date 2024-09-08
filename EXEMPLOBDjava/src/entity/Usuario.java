@@ -4,7 +4,6 @@ public class Usuario {
 
     private int idusuario;
     private String nome;
-    private String login;
     private String senha;
     private String email;
 
@@ -24,14 +23,6 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -47,5 +38,4 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

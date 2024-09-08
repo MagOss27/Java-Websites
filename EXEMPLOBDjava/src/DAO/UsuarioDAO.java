@@ -11,15 +11,14 @@ public class UsuarioDAO {
 
     // Método para cadastrar um novo usuário
     public void cadastrarUsuario(Usuario usuario) {
-        String sql = "INSERT INTO USUARIO (NOME, LOGIN, SENHA, EMAIL) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO USUARIO (NOME, SENHA, EMAIL) VALUES (?,?,?)";
         PreparedStatement ps = null;
 
         try {
             ps = Conexao.getConexao().prepareStatement(sql);
             ps.setString(1, usuario.getNome());
-            ps.setString(2, usuario.getLogin());
-            ps.setString(3, usuario.getSenha());
-            ps.setString(4, usuario.getEmail());
+            ps.setString(2, usuario.getSenha());
+            ps.setString(3, usuario.getEmail());
 
             ps.execute();
             ps.close();
@@ -31,16 +30,15 @@ public class UsuarioDAO {
 
     // Método para editar o usuário
     public void editarUsuario(Usuario usuario) {
-        String sql = "UPDATE USUARIO SET NOME = ?, LOGIN = ?, SENHA = ?, EMAIL = ? WHERE IDUSUARIO = ?";
+        String sql = "UPDATE USUARIO SET NOME = ?, SENHA = ?, EMAIL = ? WHERE IDUSUARIO = ?";
         PreparedStatement ps = null;
 
         try {
             ps = Conexao.getConexao().prepareStatement(sql);
             ps.setString(1, usuario.getNome());
-            ps.setString(2, usuario.getLogin());
-            ps.setString(3, usuario.getSenha());
-            ps.setString(4, usuario.getEmail());
-            ps.setInt(5, usuario.getIdusuario());
+            ps.setString(2, usuario.getSenha());
+            ps.setString(3, usuario.getEmail());
+            ps.setInt(4, usuario.getIdusuario());
 
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected > 0) {
@@ -73,7 +71,6 @@ public class UsuarioDAO {
                 usuario = new Usuario();
                 usuario.setIdusuario(rs.getInt("IDUSUARIO"));
                 usuario.setNome(rs.getString("NOME"));
-                usuario.setLogin(rs.getString("LOGIN"));
                 usuario.setSenha(rs.getString("SENHA"));
                 usuario.setEmail(rs.getString("EMAIL"));
             }
@@ -103,7 +100,6 @@ public class UsuarioDAO {
                 Usuario usuario = new Usuario();
                 usuario.setIdusuario(rs.getInt("IDUSUARIO"));
                 usuario.setNome(rs.getString("NOME"));
-                usuario.setLogin(rs.getString("LOGIN"));
                 usuario.setSenha(rs.getString("SENHA"));
                 usuario.setEmail(rs.getString("EMAIL"));
                 usuarios.add(usuario);
